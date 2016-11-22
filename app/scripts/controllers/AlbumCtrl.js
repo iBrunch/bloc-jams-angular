@@ -1,13 +1,10 @@
 (function() {
-	function AlbumCtrl(Fixtures) {
+	function AlbumCtrl(Fixtures, SongPlayer) {
 		this.albumData = Fixtures.getAlbum();
-		this.songData = [];
-		for (var i=0; i < this.albumData.songs.length; i++) {
-			this.songData.push(angular.copy(this.albumData.songs[i]));
-		}
+		this.songPlayer = SongPlayer;
 	}
 
 	angular
 		.module('blocJams')
-		.controller('AlbumCtrl', AlbumCtrl);
+		.controller('AlbumCtrl', ['Fixtures', 'SongPlayer', AlbumCtrl]);
 })();
