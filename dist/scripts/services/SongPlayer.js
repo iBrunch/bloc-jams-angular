@@ -9,7 +9,13 @@
 * @type {Object}
 */
 
-        var currentBuzzObject = null;
+    var currentBuzzObject = null;
+
+/**
+* @desc Starting volume and current volume of the currently playing song.
+* @type {Number}
+*/
+    SongPlayer.volume = 80;
 
 /**
 * @function setSong
@@ -147,6 +153,17 @@
     SongPlayer.setCurrentTime = function(time) {
         if (currentBuzzObject) {
             currentBuzzObject.setTime(time);
+        }
+    };
+
+/**
+* @function setVolume
+* @desc Set currently playing song volume based on the thumb's position.
+* @param {Number} newValue
+*/
+    SongPlayer.setVolume = function(thumbValue) {
+        if (currentBuzzObject) {
+            currentBuzzObject.setVolume(thumbValue);
         }
     };
 
